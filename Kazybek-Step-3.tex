@@ -38,51 +38,47 @@
 
 %----------------------------------------------------------------------------------------------------------
 
-\title{ Put the title of your thesis \\ here}
-%\author{Name Surname}
-%\institute[]{}
-%\date{2024}
+\title{ Evaluating Estimated Depth for Robotic Manipulation: Comparing Monocular and Stereodepth with 3D-LOTUS++}
+\author{Kazybek Askarbek}
+\institute[HSE]{}
+\date{2024}
 
 %---------------------------------------------------------------------------------------------------------
 \begin{document}
 %\begin{frame}
-%\titlepage
+\titlepage
 %\end{frame}
-\setcounter{page}{2}%remove here for the title
+% \setcounter{page}{2}%remove here for the title
 %----------------------------------------------------------------------------------------------------------
 %\section{Please do not use sectioning in the presentations}
-\begin{frame}{Put your title or a main part of it  here}
-Couple of motivational sentences
+\begin{frame}{}
+High-quality depth sensors are costly and noisy. Estimated depth models provide a cheaper, promising alternative for robotic manipulation.
 \begin{block}{The problem}
-to investigate \ldots 
+To investigate the feasibility of replacing expensive depth sensors with estimated depth models for robotic manipulation.
 \end{block}
 \begin{block}{The method needs a proper name here}
-put the brief idea here
+We compare different depth sources (sensor, monocular, stereo) as inputs to the 3D-LOTUS++ model, testing manipulation performance, noise robustness, and generalization.
 \end{block}
-\begin{block}{The solution} your results appears twice, as a promise here and as a contribution later
+\begin{block}{The solution} 
 \begin{enumerate}[1)]
-\item set \ldots,
-\item put \ldots,
-\item get \ldots.
+\item Set up a systematic comparison of estimated vs. sensor depth,
+\item Put mixed training in place to reduce noise sensitivity,
+\item Get a robust, cost-effective solution for depth sensing.
 \end{enumerate}
 \end{block}
 \end{frame}
 %----------------------------------------------------------------------------------------------------------
 \begin{frame}{Graphical highlights  as a form of your message%
-\footnote{\textit{V.\,V.~Strijov et al.}  Analytic and stochastic methods of structure parameter estimation~// Informatica, 2016.}}
-What the audience sees on the figure.
+\footnote{\textit{Garcia, Ricardo et al.} "Towards Generalizable Vision-Language Robotic Manipulation: A Benchmark and LLM-guided 3D Policy." (2024).}}
 \begin{columns}
 \begin{column}{0.3\textwidth}
 \begin{enumerate}[1)]
-    \item The notation and 
-    \item the subjects.
+    \item Architecture of SoTA 3D-LOTUS++ model 
 \end{enumerate}
 \end{column}
 \begin{column}{0.7\textwidth}
-	\includegraphics[width=1\textwidth]{Name-Step-3-fig}      
+	\includegraphics[width=1\textwidth]{3dlotus_arch.png}
 \end{column}
 \end{columns}
-\bigskip
-What are the consequences?
 \end{frame}
 \end{document}
