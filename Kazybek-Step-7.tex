@@ -4,32 +4,98 @@
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{graphicx}
 \usepackage{a4wide}
+\usepackage{longtable}
 
-\title{The title of my project}
+\title{Research on effective methods for encoding modalities for VLA (vision-language-action) models in robotics}
 %\author{not specified, not necessary here}
 \date{}
 \begin{document}
 \maketitle
-A short description of your project, 3--5 sentences. Expand the description from your previous step.
+This research investigates the development of a Diffusion Transformer policy for Vision-Language-Action (VLA) models in robotics, focusing on integrating diverse modalities—text, images, 3D data, and video—into a coherent, shared representation. Using the latent diffusion process, this approach enables efficient encoding of multi-modal inputs, supporting robust policy learning through scalable stochastic action generation. By utilizing internet-scale multi-modal datasets, the Diffusion Transformer aims to establish a versatile policy that can be effectively adapted to downstream robotic tasks, thereby improving the generalization and adaptability of robotic control across varied environments and task types. 
 
 \section{Introduction}
-Table~\ref{tab:intro_comparative} shows a list of solutions to compare. Put here what the table presents, briefly. 
+% \begin{table}[!htbp]
 
-\begin{table}[!htbp]
-\label{tab:intro_comparative}
-\caption{Comparative analysis of basic solution to my problem, change the title of the table.}
-\begin{tabular}{p{5cm}|p{5cm}|p{5cm}}
-	Solution & Strengths & Weakness \\
-	\hline
-	High-order canonical correlation analysis~\cite{9095246} & 
-	Large feasible set of ranking functions; fast convergence to a local optimum &
-	Does not provide global optimum in the feasible set of functions \\
-\end{tabular} 
-\end{table}
+\begin{longtable}{p{5cm}|p{5cm}|p{5cm}}
+\caption{Comparative Analysis of Multi-Modal Integration Approaches for Robotic Policy Learning.}
+
+    % \label{tab:intro_comparative}
+    \hline
+    Solution & Strengths & Weakness \\
+    \hline
+    Diffusion Policy~\cite{Chi2023DiffusionPV} & 
+    \begin{itemize}
+        \item Robust in modeling multi-modal action distributions
+        \item Exhibits stable training behavior
+        \item Scalable to high-dimensional action spaces
+    \end{itemize} & 
+    \begin{itemize}
+        \item Training relies on Stochastic Langevin Dynamics, which is computationally intensive
+        \item Lacks flexibility to adapt to novel modalities or arbitrary context input
+    \end{itemize} \\
+    \hline
+    Theia: Distilled Vision Foundation Model~\cite{Shang2024TheiaDD} & 
+    \begin{itemize}
+        \item Distills diverse VFMs for compact representations, reducing computational costs
+        \item Enhances visual knowledge for robot learning
+        \item Effective for downstream robot learning with less data
+    \end{itemize} & 
+    \begin{itemize}
+        \item Does not generalize well to unseen tasks outside the visual domain
+        \item Mainly limited to visual representations, lacking integration with action-specific modalities
+    \end{itemize} \\
+        \hline
+    Octo: Generalist Robot Policy\cite{Team2024OctoAO} & 
+    \begin{itemize}
+        \item Pretrained on the largest multi-robot dataset
+        \item Provides flexible fine-tuning across different sensory inputs and action spaces
+        \item Enables efficient adaptation to new robotic platforms
+    \end{itemize} & 
+    \begin{itemize}
+        \item Restricted to robotic manipulation settings
+        \item Primarily focuses on visuomotor control
+        \item Lacks explicit integration of language-based commands
+    \end{itemize} \\
+    \hline
+\hline
+OpenVLA~\cite{Kim2024OpenVLAAO} & 
+\begin{itemize}
+    \item Vision-Language-Action model capable of multi-robot control
+    \item Highly adaptable via parameter-efficient fine-tuning
+    \item Fully open-source for community use
+\end{itemize} & 
+\begin{itemize}
+    \item High model complexity with 7B parameters makes deployment challenging
+    \item Constrained by the amount of diverse data available in the Open X-Embodiment dataset
+\end{itemize} \\
+\hline
+Transfusion~\cite{Zhou2024TransfusionPT} & 
+\begin{itemize}
+    \item Seamlessly integrates text and image data by combining next token prediction and diffusion objectives
+    \item Scales well in cross-modal benchmarks
+\end{itemize} & 
+\begin{itemize}
+    \item Complexity in training with modality-specific encoding and decoding layers
+    \item High FLOPs requirement compared to discrete token-based approaches
+\end{itemize} \\
+\hline
+RT-Affordance~\cite{Nasiriany2024RTAffordanceAA} & 
+\begin{itemize}
+    \item Incorporates affordances as intermediate representations, offering efficient guidance for manipulation
+    \item Provides strong generalization across novel objects and scenes
+\end{itemize} & 
+\begin{itemize}
+    \item Limited to affordance-based control, may not handle arbitrary input-output mappings in diverse robotic tasks
+    \item Performance highly dependent on the quality of affordance data available
+\end{itemize} \\
+
+\end{longtable}
+
+% \end{table}
  
  The section references contain the full list, collected for this project. 
 \nocite{*} % Remove this to keep the cited referernces only
 
 \bibliographystyle{unsrt}
-\bibliography{Name-theArt}
+\bibliography{references}
 \end{document}
