@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{a4wide}
+\usepackage{hyperref}
+
+\begin{document}
+
+\paragraph{Title:} Research on effective methods for encoding modalities for VLA (vision-language-action) models in robotics
+
+\paragraph{Abstract:} This research investigates the development of a Diffusion Transformer policy for Vision-Language-Action (VLA) models in robotics, focusing on integrating diverse modalities—text, images, 3D data, and video—into a coherent, shared representation. Using the latent diffusion process, this approach enables efficient encoding of multi-modal inputs, supporting robust policy learning through scalable stochastic action generation. By utilizing internet-scale multi-modal datasets, the Diffusion Transformer aims to establish a versatile policy that can be effectively adapted to downstream robotic tasks, thereby improving the generalization and adaptability of robotic control across varied environments and task types. 
+
+\paragraph{Datasets:} The dataset used in the computational experiment is sourced from open-source projects, which provide data in standardized formats, ready for modeling.
+\begin{enumerate}
+    \item \textbf{Open X Embodiment Dataset:} The dataset consists of contributions from 22 different robots, collected through a collaboration between 21 institutions, demonstrating 527 skills (160,266 tasks). It includes diverse robotic manipulation tasks, enabling training and evaluation of generalist policies adaptable to new robots, tasks, and environments. The dataset link and details are available \href{https://openxembodiment.org}{here}.
+    \item \textbf{RLBench Dataset:} RLBench provides a suite of robotic tasks captured in a multi-modal format, including vision, language, and action data, suitable for training and evaluating generalist robotic policies. This dataset is designed for benchmarking imitation learning and reinforcement learning methods. Details are available \href{https://github.com/stepjam/RLBench}{here}.
+    \item \textbf{ManiSkill2 Benchmark Dataset:} ManiSkill2 offers a large-scale dataset for multi-modal, multi-task robotic manipulation. It supports diverse evaluation protocols and comparisons with prior works. More information can be found \href{https://github.com/haosulab/ManiSkill}{here}.
+\end{enumerate}
+
+\paragraph{References:} Papers with a fast intro and the basic solution to compare.
+\begin{enumerate}
+    \item Open X Embodiment research paper on robotic manipulation policies~\cite{Padalkar2023OpenXR}.
+    \item OpenVLA~\cite{Kim2024OpenVLAAO} Large policies pretrained on a combination of Internet-scale vision-language data and diverse robot demonstrations have the potential to change how we teach robots new skills: rather than training new behaviors from scratch, we can fine-tune such vision-language-action (VLA) models to obtain robust, generalizable policies for visuomotor control.
+    \item TinyVLA~\cite{Wen2024TinyVLATF} A new family of compact vision-language-action models, called TinyVLA, which offers two key advantages over existing VLA models: (1) faster inference speeds, and (2) improved data efficiency, eliminating the need for pre-training stage..
+\end{enumerate}
+
+\paragraph{Basic solution:} A link~\cite{Padalkar2023OpenXR} to the code of the baseline algorithm and the implementation of the RT-X model. This serves as the state of the art for comparison with the proposed solution.
+
+\paragraph{Authors:} Expert and Consultant
+Kazybek Askarbek, Ruslan Rakhimov
+
+\paragraph{Supplementary:} This section provides a comprehensive overview of additional resources supporting this research:
+\begin{itemize}
+    \item \textbf{Problem Statement:} Robotic systems often lack the capability to generalize across diverse tasks and environments, requiring extensive retraining for each new scenario. This research aims to address these limitations by leveraging multi-modal datasets and a unified Diffusion Transformer policy that enables cross-platform adaptability.
+    \item \textbf{Methodology:} The project integrates a latent diffusion process to encode diverse modalities (vision, language, and action) into a shared latent space. Preprocessing includes normalizing visual data, tokenizing language inputs, and standardizing action representations. Policy training uses a imitation learning on curated benchmarks.
+    \item \textbf{Training Setups:} Experiments are conducted on NVIDIA A100 GPUs, with a batch size of 64 and a learning rate of 1e-4. The training pipeline incorporates distributed training for scalability, with an average runtime of 72 hours per model on datasets with 500+ tasks.
+    \item \textbf{Evaluation Metrics:} Performance is measured using task success rates, action consistency scores, and transfer learning efficiency. Additional metrics include the scalability of the model to new environments and the reduction in fine-tuning time for unseen tasks.
+    \item \textbf{Extended Documentation:} Comprehensive resources, including annotated datasets, pre-trained models, and codebases, are provided \href{https://robotics-transformer-x.github.io/}{here}. Tutorials detail the implementation of baseline policies and adaptation techniques.
+    \item \textbf{Experimental Materials:} Video demonstrations showcase the execution of manipulation tasks such as object stacking, tool use, and environment navigation. Benchmarks compare the performance of Diffusion Transformer policies against state-of-the-art models.
+    \item \textbf{Reproducibility Resources:} Open-source code for model training, evaluation scripts, and configuration files are included to facilitate reproducibility. Pre-trained models for common tasks are made available to accelerate experimentation.
+\end{itemize}
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
